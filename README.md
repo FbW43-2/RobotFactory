@@ -22,4 +22,4 @@ A robot must at least have following attributes:
     posX: 0,
     posY: 0,
     heading: "NORTH",
-},
+}
