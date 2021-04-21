@@ -21,5 +21,5 @@ A robot must at least have following attributes:
     name: "Eddy",
     posX: 0,
     posY: 0,
-    heading: "NORTH",
+    heading: "NORTH"
 }
