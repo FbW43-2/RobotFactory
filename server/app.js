@@ -17,4 +17,19 @@ app.use(setCors);
 
 app.use('/', robotsRouter);
 
+/** ERROR HANDLING */
+app.use((req, res, next) => {
+    const error = (new Error('Looks like something broke...'))
+    error.status = 400;
+    next(error);
+})
+
+app.use((err, req, res, next) => {
+    res.status(err.status).send({
+        error: {
+            message: err.message
+        }
+    });
+});
+
 module.exports = app;

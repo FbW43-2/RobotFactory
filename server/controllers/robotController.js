@@ -47,66 +47,86 @@ moveForward = (heading, posX, posY) => {
 }
 
 exports.getAllRobots = (req, res, next) => {
-    const robots = db.get('robots').value();
-    res.status(200).send(robots);
+    try {
+        const robots = db.get('robots').value();
+        res.status(200).send(robots);
+    } catch (error) {
+        next(error);
+    }
 }
 
 exports.createRobot = (req, res, next) => {
-    const robotName = req.body.name;
-    const newRobot = {
-        slug: robotName || "Bot",
-        name: robotName || "Bot",
-        posX: 0,
-        posY: 0,
-        heading: "NORTH",
+    try {
+        const robotName = req.body.name;
+        const newRobot = {
+            slug: robotName || "Bot",
+            name: robotName || "Bot",
+            posX: 0,
+            posY: 0,
+            heading: "NORTH",
+        }
+        db.get('robots').push(newRobot)
+            .last()
+            .assign({ id: Date.now().toString() })
+            .write()
+    
+        res.status(200).send(newRobot);
+    } catch (error) {
+        next(error);
     }
-    db.get('robots').push(newRobot)
-        .last()
-        .assign({ id: Date.now().toString() })
-        .write()
-
-    res.status(200).send(newRobot);
 }
 
 exports.turnRobotRight = (req, res, next) => {
-    const robotID = req.body.id;
-    const robot = db.get('robots').find({"id": robotID}).value();
-    const updatedRobot = {
-        "slug": robot.slug,
-        "name": robot.name,
-        "posX": robot.posX,
-        "posY": robot.posY,
-        "heading": turnRight(robot.heading),
+    try {
+        const robotID = req.body.id;
+        const robot = db.get('robots').find({"id": robotID}).value();
+        const updatedRobot = {
+            "slug": robot.slug,
+            "name": robot.name,
+            "posX": robot.posX,
+            "posY": robot.posY,
+            "heading": turnRight(robot.heading),
+        }
+        const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
+        res.status(200).send(result);
+    } catch (error) {
+        next(error);
     }
-    const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
-    res.status(200).send(result);
 }
 
 exports.turnRobotLeft = (req, res, next) => {
-    const robotID = req.body.id;
-    const robot = db.get('robots').find({"id": robotID}).value();
-    const updatedRobot = {
-        "slug": robot.slug,
-        "name": robot.name,
-        "posX": robot.posX,
-        "posY": robot.posY,
-        "heading": turnLeft(robot.heading),
+    try {
+        const robotID = req.body.id;
+        const robot = db.get('robots').find({"id": robotID}).value();
+        const updatedRobot = {
+            "slug": robot.slug,
+            "name": robot.name,
+            "posX": robot.posX,
+            "posY": robot.posY,
+            "heading": turnLeft(robot.heading),
+        }
+        const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
+        res.status(200).send(result);
+    } catch (error) {
+        next(error);
     }
-    const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
-    res.status(200).send(result);
 }
 
 exports.moveRobot = (req, res, next) => {
-    const robotID = req.body.id;
-    const robot = db.get('robots').find({"id": robotID}).value();
-    const coordinates = moveForward(robot.heading, robot.posX, robot.posY);
-    const updatedRobot = {
-        "slug": robot.slug,
-        "name": robot.name,
-        "posX": coordinates.posX,
-        "posY": coordinates.posY,
-        "heading": robot.heading,
+    try {
+        const robotID = req.body.id;
+        const robot = db.get('robots').find({"id": robotID}).value();
+        const coordinates = moveForward(robot.heading, robot.posX, robot.posY);
+        const updatedRobot = {
+            "slug": robot.slug,
+            "name": robot.name,
+            "posX": coordinates.posX,
+            "posY": coordinates.posY,
+            "heading": robot.heading,
+        }
+        const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
+        res.status(200).send(result);
+    } catch (error) {
+        next(error);
     }
-    const result = db.get('robots').find({"id": robotID}).assign(updatedRobot).write();
-    res.status(200).send(result);
 }
