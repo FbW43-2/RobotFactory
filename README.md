@@ -1,25 +1,15 @@
 # Robot Factory
 
-This is the initial setup of Robot Factory
+Robot Factory with backend server using CORS configurations.
 
 # Task
 
-In the first step, you are going to create a basic site that pulls some robots from state and displays them on the page.
+Add a middleware directory to your server
 
-A robot must at least have following attributes:
+Add a new file 'security.js' and import it in app.js
 
-* ID
-* Name
-* posX
-* posY
-* heading
+Write a middleware functions, which sets the following headers:
 
-# Example
-
-{
-    id: 0,
-    name: "Eddy",
-    posX: 0,
-    posY: 0,
-    heading: "NORTH"
-}
+* Access-Control-Allow-Origin
+* Access-Control-Allow-Headers
+* Access-Control-Allow-Methods
