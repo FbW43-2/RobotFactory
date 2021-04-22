@@ -1,25 +1,30 @@
 # Robot Factory
 
-This is the initial setup of Robot Factory
+In the second step you are going to create a basic backend server using express.
 
 # Task
 
-In the first step, you are going to create a basic site that pulls some robots from state and displays them on the page.
+Add middlewares for
 
-A robot must at least have following attributes:
+* Getting all robots from the backend
+* Rotating one robot to the right by passing an ID
+* Rotating one robot to the left by passing an ID
+* Moving one robot forward by passing an ID
 
-* ID
-* Name
-* posX
-* posY
-* heading
 
-# Example
+# Advise
 
-{
-    id: 0,
-    name: "Eddy",
-    posX: 0,
-    posY: 0,
-    heading: "NORTH"
+Store the robots in an array in the backend.
+Example:
+
+let robotFactory = [];
+
+createRobot = (robotName) => {
+    robotFactory.push({
+        id: ...,
+        name: ...,
+        posX: 0,
+        posY: 0,
+        heading: "NORTH",
+    })
 }
