@@ -1,25 +1,17 @@
 # Robot Factory
 
-This is the initial setup of Robot Factory
+Robot Factory with an express backend server using the MVC pattern.
 
 # Task
 
-In the first step, you are going to create a basic site that pulls some robots from state and displays them on the page.
+In the third step, you are going to refactor your backend server.
 
-A robot must at least have following attributes:
+Generate a new backend using the express generator.
 
-* ID
-* Name
-* posX
-* posY
-* heading
+Add a directory for the controller along with the directory for routes.
 
-# Example
+Use the MVC pattern to serve the frontend with responses.
 
-{
-    id: 0,
-    name: "Eddy",
-    posX: 0,
-    posY: 0,
-    heading: "NORTH"
-}
+# Additional task
+
+Use lowdb to mock a database and store the robots.
