@@ -1,0 +1,36 @@
+{
+  "robots": [
+    {
+      "slug": "Bob",
+      "name": "Bob",
+      "posX": -4,
+      "posY": 0,
+      "heading": "WEST",
+      "id": "1619096573299"
+    },
+    {
+      "slug": "Eddy",
+      "name": "Eddy",
+      "posX": 5,
+      "posY": -6,
+      "heading": "SOUTH",
+      "id": "1619096671169"
+    },
+    {
+      "slug": "Chuck",
+      "name": "Chuck",
+      "posX": 5,
+      "posY": 4,
+      "heading": "NORTH",
+      "id": "1619097098468"
+    },
+    {
+      "slug": "Sam",
+      "name": "Sam",
+      "posX": 0,
+      "posY": 10,
+      "heading": "EAST",
+      "id": "1619097100472"
+    }
+  ]
+}

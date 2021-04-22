@@ -20,7 +20,7 @@ const App = (props) => {
 
   const sendGetRequest = async () => {
     try {
-      const resp = await axios.get('http://localhost:3001/');
+      const resp = await axios.get('http://localhost:3001/getAllRobots');
       setRobots(resp.data);
     } catch (err) {
       // error handling
@@ -44,7 +44,7 @@ const App = (props) => {
         <Header />
         <Switch>
           <Route exact path="/" render={() => <Robots robots={robots} addRobot={addRobot} />} />
-          <Route
+          z<Route
             path="/robot/:robotSlug"
             render={(props) => {
               const robot = robots.find(
