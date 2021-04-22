@@ -1,25 +1,11 @@
 # Robot Factory
 
-This is the initial setup of Robot Factory
+Robot Factory with an express backend server.
 
 # Task
 
-In the first step, you are going to create a basic site that pulls some robots from state and displays them on the page.
+In the third step, you are going to create new backend server using the express generator.
 
-A robot must at least have following attributes:
-
-* ID
-* Name
-* posX
-* posY
-* heading
-
-# Example
-
-{
-    id: 0,
-    name: "Eddy",
-    posX: 0,
-    posY: 0,
-    heading: "NORTH"
-}
+*Add a database mock using lowdb
+*Add a controller for rotating and moving robots
+*Add routes for serving incoming requests
